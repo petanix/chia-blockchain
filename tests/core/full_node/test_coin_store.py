@@ -77,7 +77,9 @@ class TestCoinStore:
                         if coin.puzzle_hash == reward_ph:
                             coins_to_spend.append(coin)
 
-            spend_bundle = wallet_a.generate_signed_transaction(1000, wallet_a.get_new_puzzlehash(), coins_to_spend[0])
+            spend_bundle = wallet_a.generate_signed_transaction(
+                uint64(1000), wallet_a.get_new_puzzlehash(), coins_to_spend[0]
+            )
 
             db_path = Path("fndb_test.db")
             if db_path.exists():

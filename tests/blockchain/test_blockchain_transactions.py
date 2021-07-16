@@ -312,7 +312,8 @@ class TestBlockchainTransactions:
             if coin.puzzle_hash == coinbase_puzzlehash:
                 spend_coin = coin
 
-        spend_bundle = wallet_a.generate_signed_transaction(1000, receiver_1_puzzlehash, spend_coin)
+        assert spend_coin
+        spend_bundle = wallet_a.generate_signed_transaction(uint64(1000), receiver_1_puzzlehash, spend_coin)
 
         new_blocks = bt.get_consecutive_blocks(
             1,
@@ -334,7 +335,7 @@ class TestBlockchainTransactions:
                 break
         assert coin_2 is not None
 
-        spend_bundle = wallet_a.generate_signed_transaction(1000, receiver_2_puzzlehash, coin_2)
+        spend_bundle = wallet_a.generate_signed_transaction(uint64(1000), receiver_2_puzzlehash, coin_2)
 
         new_blocks = bt.get_consecutive_blocks(
             1,
@@ -355,7 +356,7 @@ class TestBlockchainTransactions:
                 break
         assert coin_3 is not None
 
-        spend_bundle = wallet_a.generate_signed_transaction(1000, receiver_3_puzzlehash, coin_3)
+        spend_bundle = wallet_a.generate_signed_transaction(uint64(1000), receiver_3_puzzlehash, coin_3)
 
         new_blocks = bt.get_consecutive_blocks(
             1,

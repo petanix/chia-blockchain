@@ -146,7 +146,7 @@ class TestCostCalculation:
             rust_checker=rust_checker,
         )
         assert npc_result.error is not None
-        npc_result: NPCResult = get_name_puzzle_conditions(
+        npc_result = get_name_puzzle_conditions(
             generator,
             test_constants.MAX_BLOCK_COST_CLVM,
             cost_per_byte=test_constants.COST_PER_BYTE,
@@ -180,7 +180,7 @@ class TestCostCalculation:
             rust_checker=rust_checker,
         )
         assert npc_result.error is not None
-        npc_result: NPCResult = get_name_puzzle_conditions(
+        npc_result = get_name_puzzle_conditions(
             generator,
             test_constants.MAX_BLOCK_COST_CLVM,
             cost_per_byte=test_constants.COST_PER_BYTE,
@@ -239,7 +239,7 @@ class TestCostCalculation:
 
         # raise the max cost to make sure this passes
         # ensure we pass if the program does not exceeds the cost
-        npc_result: NPCResult = get_name_puzzle_conditions(
+        npc_result = get_name_puzzle_conditions(
             generator, 20000000, cost_per_byte=0, safe_mode=False, rust_checker=rust_checker
         )
 
