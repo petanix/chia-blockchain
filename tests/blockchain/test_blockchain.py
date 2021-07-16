@@ -1821,7 +1821,7 @@ class TestBodyValidation:
             guarantee_transaction_block=True,
             pool_reward_puzzle_hash=bt.pool_ph,
             farmer_reward_puzzle_hash=bt.pool_ph,
-            genesis_timestamp=0,
+            genesis_timestamp=uint64(int(time.time()) - 1000),
         )
         assert (await b.receive_block(blocks[0]))[0] == ReceiveBlockResult.NEW_PEAK
         assert (await b.receive_block(blocks[1]))[0] == ReceiveBlockResult.NEW_PEAK
@@ -2013,7 +2013,7 @@ class TestBodyValidation:
         blocks = bt.get_consecutive_blocks(
             1, block_list_input=blocks, guarantee_transaction_block=True, transaction_data=tx
         )
-        assert (await b.receive_block(blocks[-1]))[1] == Err.BLOCK_COST_EXCEEDS_MAX
+        assert (await b.receive_block(blocks[-1]))[1] in [Err.BLOCK_COST_EXCEEDS_MAX, Err.INVALID_BLOCK_COST]
 
     @pytest.mark.asyncio
     async def test_clvm_must_not_fail(self, empty_blockchain):
