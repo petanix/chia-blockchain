@@ -1828,7 +1828,7 @@ class TestBodyValidation:
             guarantee_transaction_block=True,
             pool_reward_puzzle_hash=bt.pool_ph,
             farmer_reward_puzzle_hash=bt.pool_ph,
-            genesis_timestamp=uint64(int(time.time()) - 1000),
+            genesis_timestamp=uint64(10),
         )
         assert (await b.receive_block(blocks[0]))[0] == ReceiveBlockResult.NEW_PEAK
         assert (await b.receive_block(blocks[1]))[0] == ReceiveBlockResult.NEW_PEAK
