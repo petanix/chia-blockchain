@@ -6,7 +6,7 @@ dependencies = [
     "chiabip158==1.0",  # bip158-style wallet filters
     "chiapos==1.0.4",  # proof of space
     "clvm==0.9.7",
-    "git+https://github.com/petanix/clvm_rs@main",
+    "clvm_rs @ git+https://github.com/petanix/clvm_rs@main#egg=clvm_rs",
     "clvm_tools==0.4.3",
     "aiohttp==3.7.4",  # HTTP server for full node rpc
     "aiosqlite==0.17.0",  # asyncio wrapper for sqlite, to store blocks
